@@ -185,10 +185,10 @@ let displayStars = document.querySelector(".stars");
 let stars = `<li><i class="fa fa-star"></i></li> <li><i class="fa fa-star"></i></li> <li><i class="fa fa-star"></i></li>`;
 function starDisplay() {
 	switch (moves) {
-		case 15:
+		case 17:
 			displayStars.innerHTML = `<li><i class="fa fa-star"></i></li><li><i class="fa fa-star"></i></li>`;
 			break;
-		case 22:
+		case 24:
 			displayStars.innerHTML = `<li><i class="fa fa-star"></i></li>`;
 	}
 }
