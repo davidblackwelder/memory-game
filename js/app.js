@@ -26,7 +26,7 @@ const timer = document.querySelector(".timer");
 let openCards = [];
 let matchedCards = [];
 let timerOff = true;
-let time = 20;
+let time = 25;
 let gameTimer;
 
 /*
@@ -209,7 +209,7 @@ function restartGame() {
 	// reset timer
 	stopTimer();
 	timerOff = true;
-	time = 20;
+	time = 25;
 	displayTime();
 
 	// reset all stats
