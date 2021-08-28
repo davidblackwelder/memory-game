@@ -22,14 +22,11 @@ const symbols = [
 
 const deck = document.querySelector(".deck");
 const timer = document.querySelector(".timer");
-const modal = document.querySelector(".modal");
-const modalRestart = document.querySelector(".modal-restart");
-const modalCloseBtn = document.querySelector(".close-btn");
 
 let openCards = [];
 let matchedCards = [];
 let timerOff = true;
-let time = 0;
+let time = 20;
 let gameTimer;
 
 /*
@@ -55,6 +52,7 @@ function displayDeck() {
 
 		// Add click event to each card
 		clickCard(card);
+		deck.classList.remove("disable");
 	}
 }
 
@@ -96,11 +94,10 @@ function clickCard(card) {
 			showCard(card);
 			addOpenCards(this);
 			checkMatch(currentCard, previousCard);
-		} else if (openCards.length < 1) {
+		} else {
 			// no open card
 			showCard(card);
 			addOpenCards(this);
-		} else {
 		}
 	});
 }
@@ -212,7 +209,7 @@ function restartGame() {
 	// reset timer
 	stopTimer();
 	timerOff = true;
-	time = 0;
+	time = 20;
 	displayTime();
 
 	// reset all stats
@@ -243,7 +240,7 @@ function gameOver() {
  */
 function startTimer() {
 	gameTimer = setInterval(function () {
-		time++;
+		time--;
 		displayTime();
 	}, 1000);
 }
@@ -254,10 +251,14 @@ function startTimer() {
 function displayTime() {
 	minutes = Math.floor(time / 60);
 	seconds = time % 60;
-	if (seconds < 10) {
-		timer.innerHTML = `${minutes}:0${seconds}`;
+	if (seconds >= 0) {
+		if (seconds < 10) {
+			timer.innerHTML = `${minutes}:0${seconds}`;
+		} else {
+			timer.innerHTML = `${minutes}:${seconds}`;
+		}
 	} else {
-		timer.innerHTML = `${minutes}:${seconds}`;
+		stopTimer();
 	}
 }
 
@@ -266,6 +267,7 @@ function displayTime() {
  */
 function stopTimer() {
 	clearInterval(gameTimer);
+	deck.classList.add("disable");
 }
 
 ////////// Start game for the first time
