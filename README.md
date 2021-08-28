@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/91107973-6938-4510-b138-31ef963a3b3a/deploy-status)](https://app.netlify.com/sites/gifted-lumiere-f361fe/deploys)
+
 # Memory: A Coding Project
 
 ### Are you ready to test your memory? You'll need an efficient short-term memory and a high ability to concentrate to win this game.
