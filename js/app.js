@@ -232,6 +232,7 @@ function replayGame() {
 function gameOver() {
 	if (matchedCards.length === symbols.length) {
 		stopTimer(gameTimer);
+		alert("Congratulations! You matched all the cards and won.");
 	}
 }
 
@@ -259,6 +260,8 @@ function displayTime() {
 		}
 	} else {
 		stopTimer();
+		deck.classList.add("disable");
+		alert("Time ran out and you lost!");
 	}
 }
 
@@ -267,7 +270,6 @@ function displayTime() {
  */
 function stopTimer() {
 	clearInterval(gameTimer);
-	deck.classList.add("disable");
 }
 
 ////////// Start game for the first time
