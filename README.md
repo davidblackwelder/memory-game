@@ -1,4 +1,4 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/91107973-6938-4510-b138-31ef963a3b3a/deploy-status)]
+[![Netlify Status](https://api.netlify.com/api/v1/badges/91107973-6938-4510-b138-31ef963a3b3a/deploy-status)](https://memory.davidblackwelder.dev)
 
 # Memory: A Coding Project
 
