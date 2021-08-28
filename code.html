@@ -131,14 +131,11 @@
 
                 const deck = document.querySelector(".deck");
                 const timer = document.querySelector(".timer");
-                const modal = document.querySelector(".modal");
-                const modalRestart = document.querySelector(".modal-restart");
-                const modalCloseBtn = document.querySelector(".close-btn");
 
                 let openCards = [];
                 let matchedCards = [];
                 let timerOff = true;
-                let time = 0;
+                let time = 20;
                 let gameTimer;
 
                 /*
@@ -164,6 +161,7 @@
 
                     // Add click event to each card
                     clickCard(card);
+                    deck.classList.remove("disable");
                   }
                 }
 
@@ -320,7 +318,7 @@
                   // reset timer
                   stopTimer();
                   timerOff = true;
-                  time = 0;
+                  time = 20;
                   displayTime();
 
                   // reset all stats
@@ -351,7 +349,7 @@
                 */
                 function startTimer() {
                   gameTimer = setInterval(function () {
-                    time++;
+                    time--;
                     displayTime();
                   }, 1000);
                 }
@@ -362,10 +360,14 @@
                 function displayTime() {
                   minutes = Math.floor(time / 60);
                   seconds = time % 60;
-                  if (seconds &lt;= 10) {
-                    timer.innerHTML = `${minutes}:0${seconds}`;
+                  if (seconds >= 0) {
+                    if (seconds &lt;= 10) {
+                      timer.innerHTML = `${minutes}:0${seconds}`;
+                    } else {
+                      timer.innerHTML = `${minutes}:${seconds}`;
+                    }
                   } else {
-                    timer.innerHTML = `${minutes}:${seconds}`;
+                    stopTimer();
                   }
                 }
 
@@ -374,6 +376,7 @@
                 */
                 function stopTimer() {
                   clearInterval(gameTimer);
+                  deck.classList.add("disable");
                 }
 
                 ////////// Start game for the first time
