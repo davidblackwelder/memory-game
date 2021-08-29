@@ -142,8 +142,6 @@ function checkMatch(currentCard, previousCard) {
 		openCards = [];
 	}
 
-	deck.classList.remove("disable");
-
 	moveCounter();
 	starDisplay();
 	gameOver();
