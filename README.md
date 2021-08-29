@@ -4,6 +4,8 @@
 
 ### Are you ready to test your memory? You'll need an efficient short-term memory and a high ability to concentrate to win this game.
 
+![Memory GIF](/img/memory.gif)
+
 <br>
 
 ## Technology Used
