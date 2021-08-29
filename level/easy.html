@@ -20,8 +20,9 @@
 			src="https://kit.fontawesome.com/5db21ba9c6.js"
 			crossorigin="anonymous"
 		></script>
-		<link rel="stylesheet" href="css/site.css" />
-		<link rel="icon" type="image/png" href="img/favicon-32x32.png" />
+		<link rel="stylesheet" href="/css/app.css" />
+		<link rel="stylesheet" href="/css/site.css" />
+		<link rel="icon" type="image/png" href="/img/favicon-32x32.png" />
 
 		<!-- Hotjar Tracking Code for memory.davidblackwelder.dev -->
 		<script>
@@ -47,7 +48,7 @@
 			<div class="container-fluid">
 				<a class="navbar-brand" href="/"
 					><img
-						src="img/david-blackwelder-logo.png"
+						src="/img/david-blackwelder-logo.png"
 						class="d-inline-block align-text-center px-5"
 						height="70"
 					/>
@@ -67,13 +68,15 @@
 				<div class="collapse navbar-collapse" id="navbarCollapse">
 					<ul class="navbar-nav me-auto mb-2 mb-md-0">
 						<li class="nav-item">
-							<a class="nav-link active" aria-current="page" href="/">Home</a>
+							<a class="nav-link" href="/">Home</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="app.html">The App</a>
+							<a class="nav-link active" aria-current="page" href="/app.html"
+								>The App</a
+							>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="code.html">The Code</a>
+							<a class="nav-link" href="/code.html">The Code</a>
 						</li>
 						<li class="nav-item">
 							<a
@@ -95,104 +98,37 @@
 				</div>
 			</div>
 		</nav>
+
 		<!-- ==== Main Section ==== -->
 		<main class="flex-shrink-0">
-			<div class="container col-xxl-8 px-4 py-5">
-				<div class="row g-5 row-cols-1 row-cols-lg-2">
-					<div class="col order-last order-lg-first">
-						<h1 class="display-5 fw-bold lh-1 mb-3">
-							Memory: A Coding Project
-						</h1>
-						<h4 class="lead">
-							Are you ready to test your memory? You'll need an efficient
-							short-term memory and a high ability to concentrate to win this
-							game because you only have 25 seconds to match all the cards! Or
-							try out the easy and hard levels to get more or less time
-							respectively.
-						</h4>
-						<ul class="fa-ul pt-2 checklist">
-							<li>
-								<span class="fa-li"><i class="fas fa-check-square"></i></span
-								>CSS and Bootstrap Layout
-							</li>
-							<li>
-								<span class="fa-li"><i class="fas fa-check-square"></i></span
-								>Javascript Fundamentals
-							</li>
-							<li>
-								<span class="fa-li"><i class="fas fa-check-square"></i></span
-								>Javascript Loops
-							</li>
-							<li>
-								<span class="fa-li"><i class="fas fa-check-square"></i></span
-								>Javascript Functions
-							</li>
-							<li>
-								<span class="fa-li"><i class="fas fa-check-square"></i></span
-								>Javascript Dom Manipulation
-							</li>
-							<li>
-								<span class="fa-li"><i class="fas fa-check-square"></i></span
-								>Javascript If/Then/Else
-							</li>
-							<li>
-								<span class="fa-li"><i class="fas fa-check-square"></i></span
-								>Javascript Boolean Logic
-							</li>
-						</ul>
-						<div>
-							<a
-								type="button"
-								class="btn btn-outline-dark btn-lg px-4 me-md-2 mb-2"
-								href="app.html"
-								>Try It Out!</a
-							>
-						</div>
-						<div>
-							<a
-								type="button"
-								class="btn btn-outline-dark btn-lg px-4 me-md-2 mb-2"
-								href="/level/easy.html"
-								>Try Out Easy!</a
-							>
-						</div>
-						<div>
-							<a
-								type="button"
-								class="btn btn-outline-dark btn-lg px-4 me-md-2"
-								href="/level/hard.html"
-								>Try Out Hard!</a
-							>
-						</div>
-						<h5 class="fw-bold mt-5">
-							<div class="d-flex">
-								<div class="row">
-									<div class="col">
-										<i class="fab fa-js-square fa-4x jsicon"></i>
-									</div>
-									<div class="col">
-										<i class="fab fa-bootstrap fa-4x bsicon"></i>
-									</div>
-									<div class="col">
-										<i class="fab fa-html5 fa-4x html5icon"></i>
-									</div>
-									<div class="col">
-										<i class="fab fa-css3-alt fa-4x cssicon"></i>
-									</div>
-								</div>
-							</div>
-						</h5>
-					</div>
-					<div class="col d-flex align-content-center">
-						<img
-							src="img/memory.gif"
-							alt="Memory Logo"
-							class="img-fluid center-block d-block mx-auto"
-						/>
-					</div>
+			<header>
+				<div class="mt-2 container">
+					<h2 class="click-text">Click on a card to begin the game.</h2>
+					<h2 class="tap-text">Tap on a card to begin the game.</h2>
+					<p>Your goal is to match all the cards within 40 seconds.</p>
 				</div>
+			</header>
+			<div class="container">
+				<section class="score-panel">
+					<ul class="stars">
+						<li><i class="fa fa-star"></i></li>
+						<li><i class="fa fa-star"></i></li>
+						<li><i class="fa fa-star"></i></li>
+					</ul>
+
+					<span class="moves"></span>
+
+					<span class="timer">0:40</span>
+
+					<div class="restart">
+						<i class="fa fa-repeat"></i>
+					</div>
+				</section>
+
+				<ul class="deck"></ul>
 			</div>
 		</main>
+
 		<!-- ==== Footer Section ==== -->
 		<footer class="footer mt-auto">
 			<div class="container-fluid">
@@ -213,7 +149,7 @@
 					</div>
 					<div class="col d-flex align-items-center justify-content-center">
 						<img
-							src="img/david-blackwelder-white-logo.svg"
+							src="/img/david-blackwelder-white-logo.svg"
 							alt="David Blackwelder Logo"
 							height="90"
 						/>
@@ -261,5 +197,6 @@
 			integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
 			crossorigin="anonymous"
 		></script>
+		<script src="/js/easy.js"></script>
 	</body>
 </html>
