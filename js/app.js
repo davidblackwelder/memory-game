@@ -89,6 +89,8 @@ function clickCard(card) {
 		const currentCard = this;
 		const previousCard = openCards[0];
 
+		disableClickOrNot(openCards);
+
 		// existing open card
 		if (openCards.length === 1) {
 			showCard(card);
@@ -100,6 +102,14 @@ function clickCard(card) {
 			addOpenCards(this);
 		}
 	});
+}
+
+function disableClickOrNot(array) {
+	if (array.length === 2) {
+		deck.classList.add("disable");
+	} else {
+		deck.classList.remove("disable");
+	}
 }
 
 /*
@@ -120,6 +130,7 @@ function addOpenCards(card) {
  * Check match
  */
 function checkMatch(currentCard, previousCard) {
+	disableClickOrNot(openCards);
 	if (currentCard.innerHTML === previousCard.innerHTML) {
 		cardsMatch(currentCard, previousCard);
 		openCards = [];
@@ -130,6 +141,8 @@ function checkMatch(currentCard, previousCard) {
 		}, 500);
 		openCards = [];
 	}
+
+	deck.classList.remove("disable");
 
 	moveCounter();
 	starDisplay();
