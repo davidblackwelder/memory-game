@@ -104,6 +104,9 @@ function clickCard(card) {
 	});
 }
 
+/*
+ * Prevent more than two cards being flipped at a time.
+ */
 function disableClickOrNot(array) {
 	if (array.length === 2) {
 		deck.classList.add("disable");
@@ -134,6 +137,7 @@ function checkMatch(currentCard, previousCard) {
 	if (currentCard.innerHTML === previousCard.innerHTML) {
 		cardsMatch(currentCard, previousCard);
 		openCards = [];
+		disableClickOrNot(openCards);
 	} else {
 		// wait 500ms
 		setTimeout(function () {
@@ -170,6 +174,7 @@ function addMatchedCards(currentCard, previousCard) {
 function noMatch(currentCard, previousCard) {
 	currentCard.classList.remove("open", "show", "disable");
 	previousCard.classList.remove("open", "show", "disable");
+	disableClickOrNot(openCards);
 }
 
 /*
