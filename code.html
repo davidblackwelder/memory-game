@@ -198,6 +198,8 @@
                     const currentCard = this;
                     const previousCard = openCards[0];
 
+                    disableClickOrNot(openCards);
+
                     // existing open card
                     if (openCards.length === 1) {
                       showCard(card);
@@ -209,6 +211,17 @@
                       addOpenCards(this);
                     }
                   });
+                }
+
+                /*
+                * Prevent more than two cards being flipped at a time.
+                */
+                function disableClickOrNot(array) {
+                  if (array.length === 2) {
+                    deck.classList.add("disable");
+                  } else {
+                    deck.classList.remove("disable");
+                  }
                 }
 
                 /*
@@ -229,9 +242,11 @@
                 * Check match
                 */
                 function checkMatch(currentCard, previousCard) {
+                  disableClickOrNot(openCards);
                   if (currentCard.innerHTML === previousCard.innerHTML) {
                     cardsMatch(currentCard, previousCard);
                     openCards = [];
+                    disableClickOrNot(openCards);
                   } else {
                     // wait 500ms
                     setTimeout(function () {
@@ -268,6 +283,7 @@
                 function noMatch(currentCard, previousCard) {
                   currentCard.classList.remove("open", "show", "disable");
                   previousCard.classList.remove("open", "show", "disable");
+                  disableClickOrNot(openCards);
                 }
 
                 /*
@@ -386,7 +402,7 @@
 					</div>
 					<div class="col-lg-4">
 						<p>
-							The code is structured into 18 functions. This code is still a
+							The code is structured into 19 functions. This code is still a
 							work in progress and I will update the descriptions/reasoning for
 							my functions as I continue working on this project.
 						</p>
@@ -416,7 +432,10 @@
 								even both.
 							</li>
 							<li>
-								Fix the sizing of the board on mobile so that it is larger.
+								<del
+									>Fix the sizing of the board on mobile so that it is
+									larger.</del
+								>
 							</li>
 						</ul>
 						<h5>startGame()</h5>
@@ -438,6 +457,7 @@
 							This function listens for a click on any of the cards. Clicking a
 							card for the first time will start the timer for the game.
 						</p>
+						<h5>disableClickOrNot()</h5>
 						<h5>showCard()</h5>
 						<h5>addOpenCards()</h5>
 						<h5>checkMatch()</h5>
