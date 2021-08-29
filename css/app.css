@@ -193,6 +193,10 @@ h1 {
 	.deck .card.match {
 		font-size: 1em;
 	}
+
+	.click-text {
+		display: none;
+	}
 }
 
 /*
@@ -218,5 +222,19 @@ h1 {
 	.deck .card {
 		width: 100px;
 		height: 100px;
+	}
+
+	.tap-text {
+		display: none;
+	}
+}
+
+/*
+* XLarge screens
+*/
+
+@media screen and (min-width: 900px) {
+	.tap-text {
+		display: none;
 	}
 }
