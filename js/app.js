@@ -22,6 +22,7 @@ const symbols = [
 
 const deck = document.querySelector(".deck");
 const timer = document.querySelector(".timer");
+const easy = document.getElementById("easy");
 
 let openCards = [];
 let matchedCards = [];
@@ -35,6 +36,7 @@ let gameTimer;
 function startGame() {
 	const resetBtn = document.querySelector(".restart");
 	resetBtn.addEventListener("click", restartGame);
+	displayTime();
 	displayDeck();
 }
 
