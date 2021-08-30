@@ -135,7 +135,7 @@
                 let openCards = [];
                 let matchedCards = [];
                 let timerOff = true;
-                let time = 20;
+                let time = 25;
                 let gameTimer;
 
                 /*
@@ -144,6 +144,7 @@
                 function startGame() {
                   const resetBtn = document.querySelector(".restart");
                   resetBtn.addEventListener("click", restartGame);
+                  displayTime();
                   displayDeck();
                 }
 
@@ -310,10 +311,10 @@
                 let stars = `<li><i class="fa fa-star"></i></li> <li><i class="fa fa-star"></i></li> <li><i class="fa fa-star"></i></li>`;
                 function starDisplay() {
                   switch (moves) {
-                    case 15:
+                    case 17:
                       displayStars.innerHTML = `<li><i class="fa fa-star"></i></li><li><i class="fa fa-star"></i></li>`;
                       break;
-                    case 22:
+                    case 24:
                       displayStars.innerHTML = `<li><i class="fa fa-star"></i></li>`;
                   }
                 }
@@ -334,7 +335,7 @@
                   // reset timer
                   stopTimer();
                   timerOff = true;
-                  time = 20;
+                  time = 25;
                   displayTime();
 
                   // reset all stats
@@ -357,6 +358,7 @@
                 function gameOver() {
                   if (matchedCards.length === symbols.length) {
                     stopTimer(gameTimer);
+                    alert("Congratulations! You matched all the cards and won.");
                   }
                 }
 
@@ -384,6 +386,8 @@
                     }
                   } else {
                     stopTimer();
+                    deck.classList.add("disable");
+                    alert("Time ran out and you lost!");
                   }
                 }
 
@@ -392,11 +396,11 @@
                 */
                 function stopTimer() {
                   clearInterval(gameTimer);
-                  deck.classList.add("disable");
                 }
 
                 ////////// Start game for the first time
                 startGame();
+
               </code>
             </pre>
 					</div>
