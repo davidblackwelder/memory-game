@@ -308,14 +308,17 @@
                 * Star display
                 */
                 let displayStars = document.querySelector(".stars");
-                let stars = `<li><i class="fa fa-star"></i></li> <li><i class="fa fa-star"></i></li> <li><i class="fa fa-star"></i></li>`;
+                let stars = `&lt;li>&lt;i class="fa fa-star">&lt;/i>&lt;/li>
+                             &lt;li>&lt;i class="fa fa-star">&lt;/i>&lt;/li>
+                             &lt;li>&lt;i class="fa fa-star">&lt;/i>&lt;/li>`;
                 function starDisplay() {
                   switch (moves) {
                     case 17:
-                      displayStars.innerHTML = `<li><i class="fa fa-star"></i></li><li><i class="fa fa-star"></i></li>`;
+                      displayStars.innerHTML = `&lt;li>&lt;i class="fa fa-star">&lt;/i>&lt;/li>
+                                                &lt;li>&lt;i class="fa fa-star">&lt;/i>&lt;/li>`;
                       break;
                     case 24:
-                      displayStars.innerHTML = `<li><i class="fa fa-star"></i></li>`;
+                      displayStars.innerHTML = `&lt;li>&lt;i class="fa fa-star">&lt;/i>&lt;/li>`;
                   }
                 }
 
@@ -430,20 +433,88 @@
 							card for the first time will start the timer for the game.
 						</p>
 						<h5>disableClickOrNot()</h5>
+						<p>
+							This function prevents more than two cards being shown at the same
+							time. This is called in the clickCard function as well as the
+							checkMatch and the noMatch functions.
+						</p>
 						<h5>showCard()</h5>
+						<p>
+							This function is used to show a card and is called in the
+							clickCard function.
+						</p>
 						<h5>addOpenCards()</h5>
+						<p>
+							This function pushes a card to the openCards array and it is
+							called in the clickCard function.
+						</p>
 						<h5>checkMatch()</h5>
+						<p>
+							This function gets called in the clickCard function to compare if
+							the two items in the openCards array match based on their
+							innerHTML values. This will also clear the openCards array. After
+							the checks are done I am also updating the stats and checking if
+							the game is over.
+						</p>
 						<h5>cardsMatch()</h5>
+						<p>
+							This uses the currentCard and previousCard set in the clickCard
+							function and passed through checkMatch function to add the match
+							class for styling. Then it passes the currentCard and previousCard
+							to the addMatchedCards function.
+						</p>
 						<h5>addMatchedCards()</h5>
+						<p>
+							This function is used to push the matched cards to the
+							matchedCards array which helps determine if the game is over.
+						</p>
 						<h5>noMatch()</h5>
+						<p>
+							This function is used to flip the cards back over if no match was
+							determined.
+						</p>
 						<h5>moveCounter()</h5>
+						<p>
+							Each time the checkMatch function runs this increments the moves
+							by 1.
+						</p>
 						<h5>displayStars()</h5>
+						<p>
+							Based on the number of moves this function displays 3, 2, or 1
+							star. This function is called in the checkMatch function.
+						</p>
 						<h5>restartGame()</h5>
+						<p>
+							This function resets the stats, timer, and cards without doing a
+							full page refresh.
+						</p>
 						<h5>replayGame()</h5>
+						<p>
+							Calls the restart game function and may eventually hide a modal as
+							well.
+						</p>
 						<h5>gameOver()</h5>
+						<p>
+							This function is checking the matchedCards array length to the
+							length of the symbols array to determine if the game is over. If
+							the game is over the timer is stopped and an alert is sent to the
+							browser.
+						</p>
 						<h5>startTimer()</h5>
+						<p>
+							This calls the displayTime function and decreases the time by 1.
+						</p>
 						<h5>displayTime()</h5>
+						<p>
+							This function calculates the time and displays the new time. If
+							the timer reaches zero the timer is stopped, the cards can no
+							longer be clicked, and an alert is sent to the browser.
+						</p>
 						<h5>stopTime()</h5>
+						<p>
+							This stops the countdown of the timer. This is called when all the
+							cards are matched or when the timer reaches 0:00.
+						</p>
 					</div>
 				</div>
 			</div>
