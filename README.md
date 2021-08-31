@@ -30,3 +30,8 @@
 ## Helpful Links
 
 [Try it out!](https://memory.davidblackwelder.dev)
+
+## Local Install
+
+- Either clone this repo or download the project files.
+- Open the index.html file using your favorite browser.
